@@ -8,7 +8,7 @@ import Foundation
 var example : String = "{ \"names\" : ["
 example += "\"Gilbert\","
 example += "\"Alex\","
-example += "\"Mark\","
+example += "\"Mark\""
 example += "]}"
 
 // Encode the string as an NSData object
@@ -19,6 +19,10 @@ do {
     let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: []) as! [String: AnyObject]
     if let names = json["names"] as? [String] {
         print(names)
+        for name in names {
+            print(name)
+        }
+        print(names[1])
     }
 } catch let error as NSError {
     print("Failed to load: \(error.localizedDescription)")
